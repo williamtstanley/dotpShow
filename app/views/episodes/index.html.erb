@@ -1,0 +1,19 @@
+<h1>All Episodes</h1>
+
+<%= paginate @episodes %>
+
+<% @episodes.each do |episode| %>
+    <%= link_to episode.title, question_path(episode) %>
+    <% if episode.body.length > 60 %>
+        <p>
+            <%= episode.body.truncate(60) %>
+        </p>
+    <% else %>
+        <p>
+            <%= episode.body %>
+        </p>
+    <% end %>
+    <hr>
+
+<% end %>
+<%= paginate @episodes %>
