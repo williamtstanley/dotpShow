@@ -4,9 +4,7 @@ class EpisodesController < ApplicationController
 	before_action :authorize_owner, only: [:edit, :destroy]
 
 	def index
-		@episodes = Episode.order(created_at: :desc)
-	
-	# .page(params[:page]).per(params[:per] || 10)
+		@episodes = Episode.order(created_at: :desc).page(params[:page]).per(params[:per] || 10)
 	end
 
 	def new

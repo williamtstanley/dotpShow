@@ -1,6 +1,6 @@
 <h1>All Episodes</h1>
 
-<%# <%= paginate @episodes %1> %>
+<%= paginate @episodes %>
 
 <% @episodes.each do |episode| %>
     <%= link_to episode.title, episode_path(episode) %>
@@ -16,4 +16,4 @@
     <hr>
 
 <% end %>
-<%# <%= paginate @episodes %1> %>
+<%= paginate @episodes %>

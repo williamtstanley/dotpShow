@@ -14,40 +14,43 @@
  *= require_self
  */
 
- @import "bootstrap-sprockets";
- @import "bootswatch/slate/variables";
- @import "bootstrap";
- @import "bootswatch/slate/bootswatch";
+@import "bootstrap-sprockets";
+@import "bootswatch/slate/variables";
+@import "bootstrap";
+@import "bootswatch/slate/bootswatch";
 
- .episode-content {
- 	 display: flex;
- }
-
-.player {
-  width: 70%;
-  float: left;
-  padding: 0% 2.5%;
+.row.episode-card {
+	margin-top: 45px;
 }
- 
+.episode {
+	background-color: white;
+	padding: 0 15px 15px 15px;
+	margin-bottom: 15px;
+	border: #393e43 3px solid;
+	border-radius: 8px;
+}
+.date-tag {
+	margin-top: -15;
+	font-style: italic;
+} 
+
 .player iframe {
-  height: 50px;
-  width: 100%; 
-  padding-top: 5px;
-  border: none;
+  	height: 95px;
+  	width: 100%; 
+  	padding-top: 5px;
+  	border: none;
 }
 
-/* All Mobile Sizes (devices and browser) */
-@media only screen and (max-width: 769px) {
-      .player {
-        width: 55%;
-        padding: 0% 2.5%;
-    }
+.description {
+	margin: 15px 0 15px 0;
+	min-height: 100px;
+	color: #393e43;
+	padding: 15px 0 15px 0;
+	border-top: 1px solid grey;
+	border-bottom: 1px dashed grey;
 }
- 
-/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-@media only screen and (max-width: 479px) {
-    .player {
-      width: 90%;
-      padding: 0% 5%;
-    }
+
+a.admin-links {
+ 	color:#393e43;
 }
+

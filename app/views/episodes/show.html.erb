@@ -1,39 +1,29 @@
 <div class="episode-card">
-	<div class="row">
-		<div class="episode-left-content ">
+	<div class="episode-card row">
+		<div class="col-md-2"></div>
+		<div class="episode col-md-8">
 			<div>
-				<h2><%= @category.title %> </h2>
-			</div>
-			<div>
-    			<h1><%= @episode.title.titleize %></h1>
-				<%= @episode.format_date %>
+    			<h2><%= @category.title %>: <small><%= @episode.title.titleize %></small></h3>
+				<p class="date-tag"><%= @episode.format_date %></p>
 			</div>
 			<div class="episode-content">
 				<div class="description">
-        			<%= @episode.description %>
+        			<p><%= @episode.description %></p>
 				</div>
 				<div id="player">
-              		<iframe 
-						src="http://html5-player.libsyn.com/embed/episode/id/<%= @episode.link %>/height/50/width/340/theme/standard/direction/no/autoplay/no/autonext/no/thumbnail/yes/preload/no/no_addthis/no/" 
-						scrolling="no"  
-						allowfullscreen 
-						webkitallowfullscreen 
-						mozallowfullscreen 
-						oallowfullscreen 
-						msallowfullscreen
-					>
-					</iframe>
-				</div>			
+					<iframe style="border: none;" src="//html5-player.libsyn.com/embed/episode/id/<%= @episode.link %>/height/390/width/610/theme/custom/autoplay/no/autonext/no/thumbnail/yes/preload/no/no_addthis/no/direction/backward/no-cache/true/render-playlist/no/custom-color/393e43/" height="90" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen=""></iframe>
+				</div>	
+				<div id='admin-links' class="links">
+					<% if can? :manage, @episode %>
+						<%= link_to "Edit", edit_episode_path(@episode), class: 'admin-links' %>
+						|
+						<%= link_to "Delete", episode_path(@episode), class: 'admin-links', method: :delete, data: {confirm: "Are you sure?"} %>
+					<% end %>
+				</div>		
 			</div>
 		</div>
+		<div class="col-md-2"></div>
 	</div>
-	<div class="links">
-		<% if can? :manage, @episode %>
-			|
-			<%= link_to "Edit", edit_episode_path(@episode) %>
-			|
-			<%= link_to "Delete", episode_path(@episode), method: :delete, data: {confirm: "Are you sure?"} %>
-		<% end %>
-	</div>
+
 </div>
 
