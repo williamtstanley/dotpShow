@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "DotP", root_path, {class: "navbar-brand"} %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- <li><%#= link_to "Main Page", root_path %></li> -->
+        <li><%= link_to "Home", root_path %></li>
+      	<li><%= link_to "All Episodes", episodes_path %></li>
+        <% if user_signed_in? && current_user.is_admin %>
+          <li><%= link_to "Create Episode", new_episode_path %></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          	<li><a href="#">Hello, <%= current_user.first_name.capitalize %></a></li>
+          <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+          <li><%= link_to "Sign In", new_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>DotpShow</title>
-    <%= csrf_meta_tags %>
+	<head>
+		<title>DotpShow</title>
+		<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	</head>
 
-  <body>
-    <%= yield %>
-  </body>
+	<body>
+
+		<%= render "/layouts/navbar" %>
+		<% if flash[:notice] %>
+			<div class="flash flash-notice">
+				<%= flash[:notice] %>
+			</div>
+		<% elsif flash[:alert] %>
+			<div class="flash flash-alert">
+				<%= flash[:alert] %>
+			</div>
+		<% end %>
+
+		<div class="container">
+			<%= yield %>
+		</div>
+
+	</body>
 </html>

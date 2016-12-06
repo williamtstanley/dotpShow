@@ -1,16 +1,39 @@
-<div class="episode-container">
-    <h1><%= @episode.title.titleize %></h1>
+<div class="episode-card">
+	<div class="row">
+		<div class="episode-left-content ">
+			<div>
+				<h2><%= @category.title %> </h2>
+			</div>
+			<div>
+    			<h1><%= @episode.title.titleize %></h1>
+				<%= @episode.format_date %>
+			</div>
+			<div class="episode-content">
+				<div class="description">
+        			<%= @episode.description %>
+				</div>
+				<div id="player">
+              		<iframe 
+						src="http://html5-player.libsyn.com/embed/episode/id/<%= @episode.link %>/height/50/width/340/theme/standard/direction/no/autoplay/no/autonext/no/thumbnail/yes/preload/no/no_addthis/no/" 
+						scrolling="no"  
+						allowfullscreen 
+						webkitallowfullscreen 
+						mozallowfullscreen 
+						oallowfullscreen 
+						msallowfullscreen
+					>
+					</iframe>
+				</div>			
+			</div>
+		</div>
+	</div>
+	<div class="links">
+		<% if can? :manage, @episode %>
+			|
+			<%= link_to "Edit", edit_episode_path(@episode) %>
+			|
+			<%= link_to "Delete", episode_path(@episode), method: :delete, data: {confirm: "Are you sure?"} %>
+		<% end %>
+	</div>
+</div>
 
-    <p>
-        <%= @episode.body %>
-    </p>
-
-    <div class="links">
-      <% if can? :manage, @episode %>
-        |
-        <%= link_to "Edit", edit_question_path(@episode) %>
-        |
-        <%= link_to "Delete", question_path(@episode), method: :delete, data: {confirm: "Are you sure?"} %>
-      <% end %>
-  </div>
-<br>

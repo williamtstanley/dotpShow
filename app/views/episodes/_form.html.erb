@@ -1,10 +1,15 @@
-<%= simple_form_for @question do |f| %>
-    <%= f.input :title, {placeholder: "Question Title"}  %>
-    <%= f.input :body, {rows: 10, cols: 100, placeholder: "Enter the full question text here"}  %>
-    <%= f.input :image %>
-    <%= f.association :tags, as: :check_boxes %>
-    <%= f.association :category %>
-  <div class="form-group">
-    <%= f.button :submit, class: "btn-primary" %>
-  </div>
-<% end %>
+<div class="col-md-2">
+</div>
+<div class="col-md-8">
+	<%= simple_form_for @episode do |f| %>
+    	<%= f.input :title, {placeholder: "Episode Title"}  %>
+    	<%= f.input :description, {rows: 10, cols: 100, placeholder: "Enter the full question text here"}  %>
+    	<%= f.input :link, {placeholder: "Link to mp3"}  %>
+    	<%= f.association :category %>
+  	  <div class="form-group">
+    	<%= f.button :submit, class: "btn-primary" %>
+  	  </div>
+	<% end %>
+</div>
+<div class="col-md-2">
+</div>
