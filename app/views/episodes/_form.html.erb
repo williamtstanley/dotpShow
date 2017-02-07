@@ -1,11 +1,16 @@
-<div class="col-md-2">
+<div class="col-md-2>
 </div>
 <div class="col-md-8">
 	<%= simple_form_for @episode do |f| %>
     	<%= f.input :title, {placeholder: "Episode Title"}  %>
-    	<%= f.input :description, {rows: 10, cols: 100, placeholder: "Enter the full question text here"}  %>
+    	<%= f.input :description, { placeholder: "Enter the full Description text here" }  %>
     	<%= f.input :link, {placeholder: "Link to mp3"}  %>
     	<%= f.association :category %>
+		<%= f.association :tags,
+                  collection: Tag.all,
+                  include_blank: true,
+                  input_html: { class: 'chosen-select' }
+		%>
   	  <div class="form-group">
     	<%= f.button :submit, class: "btn-primary" %>
   	  </div>

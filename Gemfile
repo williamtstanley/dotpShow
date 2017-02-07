@@ -13,6 +13,8 @@ gem 'bootswatch-rails'
 gem 'bootstrap_form'
 # forms made easy
 gem 'simple_form'
+#Chosen
+gem 'chosen-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

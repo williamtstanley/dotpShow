@@ -1,1 +1,39 @@
-<h1> this is the home page </h1>
+
+<div class="episode-card row">
+	<div class="col-md-2"></div>
+	<div class="episode col-md-8">
+		<div>
+    		<h2><%= @newestEpisode.category.title %>: <small><%= @newestEpisode.title.titleize %></small></h3>
+			<p class="date-tag"><%= @newestEpisode.format_date %></p>
+		</div>
+		<div class="episode-content">
+			<div class="description">
+        		<p><%= @newestEpisode.description %></p>
+			</div>
+			<div id="player">
+				<iframe style="border: none;" src="//html5-player.libsyn.com/embed/episode/id/<%= @newestEpisode.link %>/height/390/width/610/theme/custom/autoplay/no/autonext/no/thumbnail/yes/preload/no/no_addthis/no/direction/backward/no-cache/true/render-playlist/no/custom-color/393e43/" height="90" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen=""></iframe>
+			</div>	
+			<div id='admin-links' class="links">
+				<% if can? :manage, @newestEpisode %>
+					<%= link_to "Edit", edit_episode_path(@newestEpisode), class: 'admin-links' %>
+					|
+					<%= link_to "Delete", episode_path(@newestEpisode), class: 'admin-links', method: :delete, data: {confirm: "Are you sure?"} %>
+				<% end %>
+			</div>		
+		</div>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="mini-card-container col-md-8">
+		<div class="row"> 
+			<% @episodes.each do |episode| %>
+				<div class="col-md-4">
+					<%= episode.title %>
+				</div>
+			<% end %>
+		</div>
+	<div>
+	<div class="col-md-2"></div>
+<div>

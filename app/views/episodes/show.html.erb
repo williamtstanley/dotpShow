@@ -19,7 +19,10 @@
 						|
 						<%= link_to "Delete", episode_path(@episode), class: 'admin-links', method: :delete, data: {confirm: "Are you sure?"} %>
 					<% end %>
-				</div>		
+				</div>
+				<p>
+      	  	  	  Tags: <%= @episode.tags.map {|t| t.title}.join(", ") %>
+    			</p>
 			</div>
 		</div>
 		<div class="col-md-2"></div>
