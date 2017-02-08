@@ -47,7 +47,7 @@
 
 .description {
 	margin: 15px 0 15px 0;
-	min-height: 100px;
+	min-height: 200px;
 	color: #393e43;
 	padding: 15px 0 15px 0;
 	border-top: 1px solid grey;
@@ -126,4 +126,26 @@ a.admin-links {
  	 height: 200px;
  }
 
+.recent-episode-container {
+	background-color: white;
+	padding: 15px;
+	border-radius: 8px;
+	border: #393e43 3px solid;
+	min-height: 444px;
+	.recent-episode-logo {
+		width: 20%;
+	}
+	.row > div:first-child {
+		border-right: 1px solid black;
+	}
+	.row > div:last-child {
+		border-left: 1px solid black;
+	}
+}
 
+// .row-eq-height {
+// 	display: -webkit-box;
+// 	display: -webkit-flex;
+// 	display: -ms-flexbox;
+// 	display: flex;
+// }

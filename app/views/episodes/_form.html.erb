@@ -4,7 +4,7 @@
 	<%= simple_form_for @episode do |f| %>
     	<%= f.input :title, {placeholder: "Episode Title"}  %>
     	<%= f.input :description, { placeholder: "Enter the full Description text here" }  %>
-    	<%= f.input :link, {placeholder: "Link to mp3"}  %>
+    	<%= f.input :link, {placeholder: "Lybsyn ID#"}  %>
     	<%= f.association :category %>
 		<%= f.association :tags,
                   collection: Tag.all,

@@ -1,7 +1,7 @@
 
 <div class="episode-card row">
-	<div class="col-md-2"></div>
-	<div class="episode col-md-8">
+	<div class="col-md-1"></div>
+	<div class="episode col-md-10">
 		<div>
     		<h2><%= @newestEpisode.category.title %>: <small><%= @newestEpisode.title.titleize %></small></h3>
 			<p class="date-tag"><%= @newestEpisode.format_date %></p>
@@ -22,18 +22,27 @@
 			</div>		
 		</div>
 	</div>
-	<div class="col-md-2"></div>
+	<div class="col-md-1"></div>
 </div>
 <div class="row">
-	<div class="col-md-2"></div>
-	<div class="mini-card-container col-md-8">
-		<div class="row"> 
+	<div class="col-md-1"></div>
+	<div class="recent-episode-container col-md-10">
+		<div class="row">
+			<h1>Recent DotP Episodes</h1>	
+		</div>
+		<div class="row row-eq-height recent-episode-row"> 
 			<% @episodes.each do |episode| %>
-				<div class="col-md-4">
-					<%= episode.title %>
+				<div class="col-md-4 recent-episode">
+					<div>
+						<%= image_tag 'logo_black', class: 'recent-episode-logo' %>
+						<span><%= episode.title %></span>
+						<div class="description">
+        					<p><%= episode.description %></p>
+						</div>
+					</div>
 				</div>
 			<% end %>
 		</div>
 	<div>
-	<div class="col-md-2"></div>
+	<div class="col-md-1"></div>
 <div>
